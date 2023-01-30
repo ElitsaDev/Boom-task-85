@@ -24,17 +24,16 @@ window.addEventListener("DOMContentLoaded", () => {
     .then(checkStatus)
     .then(toJSON)
     .then((data) => {
-         let arrayOfLiElem = []; 
-         Array.from(data.results)
-            .forEach(pokemon => {
+         let liArray = {};
+         data.results.forEach(pokemon => {
+
               let nameOfPokemon = pokemon.name;
               let li = document.createElement('li');
               li. innerText = nameOfPokemon;
-              arrayOfLiElem.push(li);
-         });
-         
-         ul.appendChild(arrayOfLiElem);
-          
+              
+              ul.append(li);
+              
+         });  
     });
   
 });
