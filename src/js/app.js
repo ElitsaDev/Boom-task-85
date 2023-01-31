@@ -28,7 +28,7 @@ window.addEventListener("DOMContentLoaded", () => {
         data.results.forEach(pokemon => {
             let li = document.createElement('li');
             li.innerText = pokemon.name;
-            ul.append(li);
+            ul.appendChild(li);
 
         });
     });
