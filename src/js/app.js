@@ -6,10 +6,10 @@ window.addEventListener("DOMContentLoaded", () => {
     const ul = document.querySelector("ul");
     const pokemonCount = 10;
 
-    fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${pokemonCount}`)
+    fetch(`https://pokeapi.co/api/v2/pokemon?limit=${pokemonCount}`)
     .then(response => response.json())
     .then((data) => {
-        
+
         data.results.forEach((pokemon) => {
             let li = document.createElement('li');
             li.innerText = pokemon.name;
