@@ -5,27 +5,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const ul = document.querySelector("ul");
     const pokemonCount = 10;
-    const url = `https://pokeapi.co/api/v2/pokemon/?limit=${pokemonCount}`;
 
-
-    function checkStatus(response) {
-        if (response.status >= 200 && response.status < 300) {
-            return Promise.resolve(response);
-        } else {
-            return Promise.reject(new Error(response.status));
-        }
-    }
-
-    function toJSON(response) {
-        return response.json();
-    }
-
-    fetch(url)
-    .then(checkStatus)
-    .then(toJSON)
+    fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${pokemonCount}`)
+    .then(response => response.json())
     .then((data) => {
-
-        data.results.forEach(pokemon => {
+        
+        data.results.forEach((pokemon) => {
             let li = document.createElement('li');
             li.innerText = pokemon.name;
             ul.appendChild(li);
